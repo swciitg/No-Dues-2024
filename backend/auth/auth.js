@@ -75,7 +75,7 @@ router.get("/callback", async function (req, res) {
       "05": "Design",
     };
     branch = map[branch];
-   const isUserFinalYearite= checkUsers.checkUser(roll);
+   const isUserFinalYearite= checkUsers.checkFinalYearite(roll);
    if (!isUserFinalYearite) {
     console.log("User is not eligible to use this portal.");
     res.redirect(`${FRONTEND_URL}/noteligible`);

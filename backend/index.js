@@ -1,10 +1,9 @@
-require("dotenv").config();
 const express = require("express");
 const { connect } = require("mongoose");
 const msal = require("@azure/msal-node");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-
+require("dotenv").config();
 
 const app = express();
 const port = 3002;
@@ -12,8 +11,7 @@ const authRouter = require("./auth/auth.js");
 const MONGO_URI = process.env.MONGO_URI;
 connect(MONGO_URI);
 
-
-app.use(cors({origin:['http://localhost:3000']}));
+app.use(cors({ origin: ["http://localhost:3000"] }));
 app.use(bodyParser.json());
 
 const msalConfig = {
@@ -25,7 +23,7 @@ const msalConfig = {
   system: {
     loggerOptions: {
       loggerCallback(loglevel, message, containsPii) {
-        console.log(message);
+        // console.log(message);
       },
       piiLoggingEnabled: false,
       logLevel: msal.LogLevel.Verbose,

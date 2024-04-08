@@ -1,7 +1,7 @@
 const fs = require('fs');
 const csv = require('csv-parser');
 const checkUsers = {
-    checkUser: (roll) => {
+    checkFinalYearite: (roll) => {
         let userExists = false;
         fs.createReadStream('./csv/allstudents.csv')
             .pipe(csv())
