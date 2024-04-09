@@ -4,6 +4,11 @@ module.exports = {
   theme: {
     extend: {
     },
+    screens:{
+      'sm':'640px',
+      'xsm':'480px',
+      '2xsm':'400px'
+    }
   },
   plugins: [],
   darkMode: 'class',

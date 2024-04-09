@@ -1,9 +1,10 @@
 import Login from "./pages/login";
-
+import StudentDashboard from "./pages/studentDashboard"
 function App() {
   return (
     <div>
-    <Login/>
+    {/*<Login/>*/}
+    <StudentDashboard/>
     </div>
   );
 }
