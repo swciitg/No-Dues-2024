@@ -78,7 +78,7 @@ router.get("/callback", async function (req, res) {
    const isUserFinalYearite= checkUsers.checkFinalYearite(roll);
    if (!isUserFinalYearite) {
     console.log("User is not eligible to use this portal.");
-    res.redirect(`${FRONTEND_URL}/noteligible`);
+    res.redirect(`${FRONTEND_URL}/auth/error?message=Your webmail is not eligible for using No Dues Portal`);
     return;
   }
     const userExists = await User.findOne({
@@ -110,7 +110,7 @@ router.get("/callback", async function (req, res) {
             // Assuming you have the token in a variable named 'token'
             res.cookie("token", token, { httpOnly: true, sameSite: "strict" });
 
-            res.redirect(`${FRONTEND_URL}`);
+            res.redirect(`${FRONTEND_URL}/student`);
             res.send(JSON.stringify(user));
           }
         );
@@ -119,6 +119,7 @@ router.get("/callback", async function (req, res) {
       }
     } else {
       console.log("User already exists");
+      console.log(user);
       jwt.sign(
         { isowner: true, id: user.mail || user.userPrincipalName },
         process.env.JWT_SEC,
@@ -127,7 +128,7 @@ router.get("/callback", async function (req, res) {
 
           // Assuming you have the token in a variable named 'token'
           res.cookie("token", token, { httpOnly: true});
-          res.redirect(`${FRONTEND_URL}`);
+          res.redirect(`${FRONTEND_URL}/student`);
           res.send(JSON.stringify(user));
         }
       );
