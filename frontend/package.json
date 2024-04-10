@@ -1,6 +1,6 @@
 {
   "name": "nodues-portal",
-  "homepage": "/test_nodues",
+  "homepage": "/test/nodues",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
