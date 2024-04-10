@@ -9,8 +9,8 @@ function App() {
     <BrowserRouter basename="/test_nodues">
     <Routes>
       {/* <RedirectComponent/> */}
-    <Route path="/" element={<Login/>} />
-    {/* <Route path="/" element={<RedirectComponent/>} /> */}
+    {/* <Route path="/" element={<Login/>} /> */}
+    <Route path="/" element={<RedirectComponent/>} />
 
     {/* <StudentDashboard/> */}
     </Routes></BrowserRouter>

@@ -1,64 +1,47 @@
-// import React, { useState } from 'react';
-// import crypto from 'crypto';
-// import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import CryptoJS from 'crypto-js';
 
-// const SecretKey = "eqkksezylturgsyi";
+const RedirectComponent = () => {
+  const secret = "eqkksezylturgsyi";
 
-// function RedirectComponent() {
-//   const [authenticated, setAuthenticated] = useState(false);
-//   const location=useLocation();
-//   const encryptedURL = new URLSearchParams(location.search).get("checksum");
-//   // Function to calculate checksum
-//   const calculateChecksum = (msg) => {
-//     return crypto.createHmac('sha256', SecretKey)
-//                  .update(msg)
-//                  .digest('base64');
-//   };
+  const [message, setMessage] = useState("");
+  const [redirectUrl, setRedirectUrl] = useState("");
 
-//   // Function to handle authentication
-//   const handleAuthentication = (msg) => {
-//     const input = msg.split("|");
-//     const receivedChecksum = input[input.length - 1];
-//     const message = msg.slice(0, msg.lastIndexOf("|"));
-//     const calculatedChecksum = calculateChecksum(message);
+  useEffect(() => {
+    // Get the message and checksum from the URL
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const rmsg = urlParams.get('msg');
 
-//     if (receivedChecksum === calculatedChecksum) {
-//       // If checksum matches, set authenticated to true
-//       setAuthenticated(true);
-//     } else {
-//       // If checksum does not match, show an error message
-//       console.error("Something went wrong with authentication.");
-//     }
-//   };
+    if (rmsg) {
+        const lastPipeIndex = rmsg.lastIndexOf("|");
+      var rchecksum = rmsg.slice(lastPipeIndex + 1);
+      rchecksum = rchecksum.replace(' ', '+');
+         console.log("Hii",rchecksum)
+      const msg = rmsg.slice(0, lastPipeIndex+1);
+      const checksum = CryptoJS.HmacSHA256(msg, secret).toString(CryptoJS.enc.Base64);
+      console.log(checksum)
+      if (rchecksum === checksum) {
+        // If checksum matches, set success message
+        setMessage("Successfully Authenticated: " + msg);
+        // Set the URL for redirection
+        setRedirectUrl('http://localhost:3000/test_nodues?msg=' + encodeURIComponent(rmsg));
+      } else {
+        // If checksum does not match, set error message
+        setMessage("Something went wrong with authentication.");
+      }
+    } else {
+      setMessage("No message to verify.");
+    }
+  }, []);
 
-//   // Function to redirect with checksum as query parameter
-//   const redirectToNextPage = (msg) => {
-//     const url = `http://localhost:3000/?checksum=${msg}`;
-//     window.location.href = url;
-//   };
+  return (
+    <div>
+      <p>{message}</p>
+      {redirectUrl && <a href={redirectUrl} className="button">Go to Next Page</a>}
+    </div>
+  );
+};
 
-//   return (
-//     <div>
-//       {/* Button to simulate received message */}
-//       <button onClick={() => handleAuthentication(encryptedURL)}>
-//         Simulate Received Message
-//       </button>
+export default RedirectComponent;
 
-//       {/* Display message based on authentication */}
-//       {authenticated ? (
-//         <p>Successfully Authenticated: siddhant.s</p>
-//       ) : (
-//         <p>Not Authenticated</p>
-//       )}
-
-//       {/* Button to redirect with checksum */}
-//       {authenticated && (
-//         <button onClick={() => redirectToNextPage(encryptedURL)}>
-//           Go to Next Page
-//         </button>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default RedirectComponent;
