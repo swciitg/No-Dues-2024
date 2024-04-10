@@ -6,7 +6,7 @@ function App() {
   // const url=
 
   return (
-    <BrowserRouter basename="/test_nodues">
+    <BrowserRouter basename="/test/nodues">
     <Routes>
       {/* <RedirectComponent/> */}
     {/* <Route path="/" element={<Login/>} /> */}
