@@ -1,11 +1,20 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/login";
 import StudentDashboard from "./pages/studentDashboard"
+import RedirectComponent from "./pages/loading";
 function App() {
+  // const url=
+
   return (
-    <div>
-    {/*<Login/>*/}
-    <StudentDashboard/>
-    </div>
+    <BrowserRouter basename="/test/nodues">
+    <Routes>
+      {/* <RedirectComponent/> */}
+    {/* <Route path="/" element={<Login/>} /> */}
+    <Route path="/" element={<RedirectComponent/>} />
+
+    {/* <StudentDashboard/> */}
+    </Routes></BrowserRouter>
+    
   );
 }
 
