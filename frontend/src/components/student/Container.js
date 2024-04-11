@@ -8,9 +8,9 @@ const StudentContainer = () => {
                     <h1 className="text-[#1E2532] text-4xl ml-8 relative top-4 font-semibold">Kane Mona</h1>
                     <h1 className="text-[#1E2532] text-2xl ml-8 relative top-4 font-semibold">234567787</h1>
                     <div className="flex flex-col justify-between">
-                        <form className="w-full flex  mt-16 mb-4">
+                        <form className="w-full flex flex-col items-center  xsm:flex-row  mt-16 mb-4">
 
-                            <div className="w-1/2 mx-8">
+                            <div className="w-3/4 xsm:w-1/2 mx-8">
                                 <fieldset class="mb-4">
                                     <legend class="text-md font-semibold mb-2">Program</legend>
                                     <input type="text" class="w-11/12 border border-gray-300 rounded-md sm:px-3  py-2 focus:outline-none  focus:bg-[#E8E9EA]" />
@@ -37,7 +37,7 @@ const StudentContainer = () => {
                                 </fieldset>
                             </div>
 
-                            <div className="w-1/2 mx-8">
+                            <div className="w-3/4 xsm:w-1/2 mx-8">
                                 <fieldset class="mb-4">
                                     <legend class="text-md font-semibold mb-2">Department</legend>
                                     <select class="w-11/12 border border-gray-300 rounded-md px-3 py-2 focus:outline-none  focus:bg-[#E8E9EA]">
@@ -50,7 +50,7 @@ const StudentContainer = () => {
 
                                 <fieldset class="mb-4">
                                     <legend class="text-md font-semibold mb-2">Contact Number</legend>
-                                    <input type="number" class="w-11/12 border border-gray-300 rounded-md px-3 py-2 focus:outline-none  focus:bg-[#E8E9EA]" />
+                                    <input type="text" class="w-11/12 border border-gray-300 rounded-md px-3 py-2 focus:outline-none  focus:bg-[#E8E9EA]" />
                                 </fieldset>
 
                                 <fieldset class="mb-4">
