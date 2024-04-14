@@ -8,5 +8,12 @@ services:
     build:
         context: .
     ports:
-      - "9834:3000"
+      - "9345:3000"
+    networks:
+      - backend_default
     command: sh -c "cd /app && serve -s build"
+
+networks:
+  backend_default:
+    external: true
+    
