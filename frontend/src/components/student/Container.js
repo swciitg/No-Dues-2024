@@ -1,6 +1,19 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 const StudentContainer = () => {
+    const SERVER_URL = process.env.REACT_APP_SERVER_URL||"http://localhost:3002";
+ const [data, setData] = useState([]);
+    useEffect(() => {
+        const email = localStorage.getItem("email");
+        axios.get(`${SERVER_URL}/user/profile/${email}`)
+            .then((response) => {
+                setData(response.data.result[0]);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
+    console.log(data);
     return (
         <React.Fragment>
             <div className="w-full bg-[#eef1f4] h-full h-[calc(100%-7rem)]">

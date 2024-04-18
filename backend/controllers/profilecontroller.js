@@ -1,19 +1,5 @@
 const db=require('../helpers/database');
 
-// const getUserprofile = async (req, res) => {
-//   try {
-//     const email = req.params.email;
-//     console.log(email)
-//     const sqlQuery = `SELECT * FROM user.users WHERE email = ${email}`;
-//     // Print list of contacts
-//     const result = await db.pool.query(sqlQuery);
-//     return res
-//       .status(200)
-//       .json({ message: "User profile fetched successfully", result });
-//   } catch (error) {
-//     return res.status(500).json({ message: error.message });
-//   }
-// };
 const getUserprofile = async (req, res) => {
   try {
     const email = req.params.email;
