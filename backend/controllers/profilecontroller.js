@@ -1,4 +1,4 @@
-const db=require('../helpers/database')
+const db=require('../helpers/database');
 
 const getUserprofile = async (req, res) => {
   try {
@@ -15,18 +15,27 @@ const getUserprofile = async (req, res) => {
 };
 const registerUser = async (req, res) => {
   try {
-    //const conn = await db.pool.getConnection();
-    const { name, email, password } = req.body;
-  //  await conn.query("CREATE TABLE IF NOT EXISTS demo_user.users ( \
-    //  id INT NOT NULL AUTO_INCREMENT,\
-      //name VARCHAR(255) NOT NULL,\
-     // email VARCHAR(255) NOT NULL,\
-     // password VARCHAR(255) NOT NULL,\
-     // created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
-     // PRIMARY KEY (id))");
+      const   conn = await db.pool.getConnection();
+        await conn.query(`
+            CREATE TABLE IF NOT EXISTS user.users (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(255) NOT NULL,
+                email VARCHAR(255) NOT NULL UNIQUE,
+                rollNo VARCHAR(255) NOT NULL UNIQUE,
+                program VARCHAR(255) NOT NULL,
+                year INT NOT NULL,
+                branch VARCHAR(255) NOT NULL,
+                accountNo VARCHAR(255),
+                IFSC VARCHAR(255),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)
+        `);
+    const { name, email, rollNo,program,year,branch } = req.body;
 //console.log("users table created.")
-    const sqlQuery = `INSERT INTO users (name, email, password) VALUES ('${name}', '${email}', '${password}')`;
-    const result = await db.pool.query(sqlQuery)
+  const query = `
+            INSERT INTO users (name, email, rollNo, program, year, branch, accountNo, IFSC) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+    const values = [name, email, rollNo, program, year, branch, "1234567890", "ABCD1234"];
+    const result = await db.pool.query(query, values);
+
     console.log(result);
     return res
       .status(200)
