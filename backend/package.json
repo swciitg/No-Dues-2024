@@ -20,6 +20,7 @@
     "fs": "^0.0.1-security",
     "isomorphic-fetch": "^3.0.0",
     "jsonwebtoken": "^9.0.2",
+    "mariadb": "^3.3.0",
     "mongoose": "^8.3.0",
     "nodemon": "^3.0.3"
   }
