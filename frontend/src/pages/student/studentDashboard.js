@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/student/Header";
-import StudentContainer from "../components/student/Container";
+import Header from "../../components/student/Header";
+import StudentContainer from "../../components/student/Container";
 const StudentDashboard = () => {
     return (
         <React.Fragment>
