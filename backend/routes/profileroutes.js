@@ -4,7 +4,7 @@ const { getUserprofile, registerUser } = require('../controllers/profilecontroll
 const router = express.Router();
 
 
-router.get('/profile/:id',getUserprofile);
+router.get('/profile/:email',getUserprofile);
 router.post('/register',registerUser);
 
 module.exports = router;
