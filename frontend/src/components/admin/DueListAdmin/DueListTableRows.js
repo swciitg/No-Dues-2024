@@ -54,7 +54,7 @@ function DueListTableRows() {
             <span className="flex"> <img src='currency_rupee (1).png'></img>
               <p>{item.amount}</p></span>
 
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg md:w-32 mr-8">
+            <button className="bg-blue-500 hover:bg-blue-700 w-fit text-white font-bold py-2 px-2 rounded-lg mr-2">
               Approve
             </button>
           </div>
