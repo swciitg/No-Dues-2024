@@ -16,9 +16,9 @@ COPY . .
 
 # Create production build of React App
 RUN npm run build
-RUN mkdir -p ./build/test_nodues
-RUN mv ./build/static ./build/test_nodues/static
-RUN mv ./build/*.json ./build/test_nodues/ \
-    && mv ./build/*.ico ./build/test_nodues/ \
-    && mv ./build/*.png ./build/test_nodues/ \
-    && mv ./build/*.svg ./build/test_nodues/
+RUN mkdir -p ./build/test/nodues
+RUN mv ./build/static ./build/test/nodues/static
+RUN mv ./build/*.json ./build/test/nodues/ \
+    && mv ./build/*.ico ./build/test/nodues/ \
+    && mv ./build/*.png ./build/test/nodues/ \
+    && mv ./build/*.svg ./build/test/nodues/
