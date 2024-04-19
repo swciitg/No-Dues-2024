@@ -1,5 +1,5 @@
 import React from "react";
-const Header=()=>{
+const Header=({data})=>{
     return(
         <React.Fragment>
             <div className="box-border w-full h-28  flex items-center justify-evenly">
@@ -10,7 +10,7 @@ const Header=()=>{
 
                 <div className="xsm:w-3/12 w-4/12 flex xsm:mr-8 2xsm:mr-4 mr-2 justify-end">
                     <img src="Person.svg"></img>
-                    <h4 className="text-[#2164E8]">Mona Kane</h4>
+                    <h4 className="text-[#2164E8]">{data.name}</h4>
                 </div>
             </div>
         </React.Fragment>
