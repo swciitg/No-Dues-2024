@@ -26,6 +26,7 @@ const FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL || "http://localhost:300
         setMsgColor("text-green-500");
         // Set the URL for redirection
         setRedirectUrl(`${FRONTEND_URL}/test/nodues/dashboard?msg=` + encodeURIComponent(rmsg));
+        localStorage.setItem('token', encodeURIComponent(rmsg));
       } else {
         // If checksum does not match, set error message
         setMessage("Something went wrong with authentication.");

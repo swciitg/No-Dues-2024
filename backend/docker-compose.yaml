@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  web:
+    image: no_dues_backend_test
+    container_name: no_dues_backend_test
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "9501:3002"
