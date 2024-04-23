@@ -5,7 +5,7 @@ const StudentContainer = ({data}) => {
         <React.Fragment>
             <div className="w-full bg-[#eef1f4] h-full h-[calc(100%-7rem)]">
                 <div className="bg-[#ffffff]  w-11/12 sm:w-7/12   mx-auto h-fit relative top-8">
-                    <h1 className="text-[#1E2532] text-4xl ml-8 relative top-4 font-semibold">{data.name}</h1>
+                    <h1 className="text-[#1E2532] text-4xl ml-8 relative top-4 font-semibold"><div className=" font text-blue-400">WELCOME</div> {data.email}</h1>
                     <h1 className="text-[#1E2532] text-2xl ml-8 relative top-4 font-semibold">{data.rollNo}</h1>
                     <div className="flex flex-col justify-between">
                         <form className="w-full flex flex-col items-center  xsm:flex-row  mt-16 mb-4">
