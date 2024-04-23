@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 const app = express();
 const port = 3002;
-const authRouter = require("./auth/auth.js");
+// const authRouter = require("./auth/auth.js");
 const profileRouter = require("./routes/profileroutes.js");
 app.use(cors({ origin: ["http://localhost:3000"] }));
 app.use(bodyParser.json());
