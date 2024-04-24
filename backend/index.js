@@ -7,7 +7,12 @@ const app = express();
 const port = 3002;
 // const authRouter = require("./auth/auth.js");
 const profileRouter = require("./routes/profileroutes.js");
-app.use(cors({ origin: ["http://localhost:3000"] }));
+const corsConfig = {
+  origin: true,
+  credentials: true,
+};
+app.use(cors(corsConfig));
+app.options("*", cors(corsConfig));
 app.use(bodyParser.json());
 
 // const msalConfig = {
