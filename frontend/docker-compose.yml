@@ -2,11 +2,11 @@ version: "3.3"
 
 services:
   web:
-    image: test_nodues_frontend
-    container_name: test_nodues_frontend
+    image: nodues_frontend
+    container_name: nodues_frontend
     restart: always
     build:
         context: .
     ports:
-      - "9834:3000"
+      - "9345:3000"
     command: sh -c "cd /app && serve -s build"
